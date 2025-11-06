@@ -278,42 +278,44 @@ export default function ApiPage() {
     <div className="weather-dashboard">
       <section className="api-header">
         <div className="container">
-          <h1>Clima</h1>
-          <p>Por defecto, tu zona actual. También puedes seleccionar.</p>
+          <h1>Nuestros climas</h1>
+          <p>Acá vas a poder ver nuestros climas, el tuyo y el de donde vos quieras buscar.</p>
         </div>
       </section>
 
       <section className="selectors">
         <div className="container">
-          <form className="search-group" onSubmit={handleSearchSubmit}>
-            <label htmlFor="search-input">Buscar dirección o ciudad</label>
-            <div className="search-row">
-              <input
-                id="search-input"
-                className="search-control"
-                type="text"
-                placeholder="Ej: Rosario, Santa Fe"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <button type="submit" className="search-btn">Buscar</button>
-              <button type="button" className="clear-btn" onClick={handleClearToCurrent}>Limpiar</button>
-            </div>
-          </form>
-          {Array.isArray(searchResults) && searchResults.length > 0 && (
-            <div className="search-results">
-              {searchResults.map((r) => (
-                <button
-                  key={`${r.latitude}-${r.longitude}-${r.name}`}
-                  className="result-item"
-                  type="button"
-                  onClick={() => handleSelectPlace(r)}
-                >
-                  {r.name}{r.admin1 ? `, ${r.admin1}` : ""}{r.country ? `, ${r.country}` : ""}
-                </button>
-              ))}
-            </div>
-          )}
+          <div className="search-wrapper">
+            <form className="search-group" onSubmit={handleSearchSubmit}>
+              <label htmlFor="search-input">Buscar dirección o ciudad</label>
+              <div className="search-row">
+                <input
+                  id="search-input"
+                  className="search-control"
+                  type="text"
+                  placeholder="Ej: Rosario, Santa Fe"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button type="submit" className="search-btn">Buscar</button>
+                <button type="button" className="clear-btn" onClick={handleClearToCurrent}>Limpiar</button>
+              </div>
+            </form>
+            {Array.isArray(searchResults) && searchResults.length > 0 && (
+              <div className="search-results">
+                {searchResults.map((r) => (
+                  <button
+                    key={`${r.latitude}-${r.longitude}-${r.name}`}
+                    className="result-item"
+                    type="button"
+                    onClick={() => handleSelectPlace(r)}
+                  >
+                    {r.name}{r.admin1 ? `, ${r.admin1}` : ""}{r.country ? `, ${r.country}` : ""}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <div className="selector-group">
             <label htmlFor="dev-select">Ver clima de developer</label>
             <select id="dev-select" className="select-control" value={selectedDevIndex} onChange={handleDeveloperChange}>
@@ -351,14 +353,14 @@ export default function ApiPage() {
                   </p>
                 </div>
                 <div className="right">
-                  <div className="weather-icon" style={{ fontSize: "100px" }}>
+                  <div className="weather-icon">
                     {getWeatherIcon(selectedWeather.code)}
                   </div>
                 </div>
               </div>
 
-              <div className="main-stats" style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-                <div className="temperature" style={{ fontSize: "48px", fontWeight: 700 }}>
+              <div className="main-stats">
+                <div className="temperature">
                   {Math.round(selectedWeather.temp)}°C
                 </div>
                 <div className="description">
@@ -367,7 +369,7 @@ export default function ApiPage() {
                 </div>
               </div>
 
-              <div className="details" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", marginTop: "12px" }}>
+              <div className="details">
                 <div>🌅 Amanecer: {formatHour(selectedWeather.sunrise)}</div>
                 <div>🌇 Atardecer: {formatHour(selectedWeather.sunset)}</div>
                 <div>💧 Humedad: {selectedWeather.humidity ?? "-"}%</div>
@@ -377,12 +379,12 @@ export default function ApiPage() {
               </div>
 
               {Array.isArray(selectedWeather.daily) && selectedWeather.daily.length > 0 && (
-                <div className="weekly" style={{ display: "flex", gap: "10px", marginTop: "16px", overflowX: "auto" }}>
+                <div className="weekly">
                   {selectedWeather.daily.map((d, i) => (
-                    <div key={i} className="day" style={{ background: "rgba(255,255,255,0.25)", borderRadius: "10px", padding: "8px 12px", minWidth: "90px", textAlign: "center" }}>
-                      <div className="dow" style={{ fontWeight: 600 }}>{formatDay(d.time)}</div>
-                      <div className="ico" style={{ fontSize: "22px" }}>{getWeatherIcon(d.code)}</div>
-                      <div className="temps" style={{ fontSize: "14px" }}> {Math.round(d.tempMax ?? 0)}° / {Math.round(d.tempMin ?? 0)}°</div>
+                    <div key={i} className="day">
+                      <div className="dow">{formatDay(d.time)}</div>
+                      <div className="ico">{getWeatherIcon(d.code)}</div>
+                      <div className="temps"> {Math.round(d.tempMax ?? 0)}° / {Math.round(d.tempMin ?? 0)}°</div>
                     </div>
                   ))}
                 </div>

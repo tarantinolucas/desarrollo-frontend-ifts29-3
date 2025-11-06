@@ -184,11 +184,6 @@ export default function Home() {
       <section id="equipo" className="carousel-3d-section py-5">
         <h2 className="text-center mb-4">Nuestro Equipo</h2>
         <Carousel3DHome integrantes={integrantes} />
-        {clima && (
-          <p className="text-center mt-3 text-muted">
-            🌤️ {clima}
-          </p>
-        )}
       </section>
     </div>
   );
