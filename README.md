@@ -31,7 +31,7 @@ El objetivo principal es transformar un sitio web estático en una aplicación m
 
 ## Características Principales
 
-  - navegante **Navegación fluida** sin recargar la página gracias a **React Router DOM**.
+  - **Navegación fluida** sin recargar la página gracias a **React Router DOM**.
   - 🎥 **Video de fondo** en la sección principal para un mayor impacto visual.
   - ☀️ **Integración con API de clima** (Open-Meteo) mostrando la temperatura de Buenos Aires en tiempo real.
   - 🧩 **Componentes reutilizables** y organizados por secciones (Home, Bitácora, Integrantes, Victoria, etc.).
