@@ -1,0 +1,155 @@
+.carousel-3d-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*  contenedor */
+.carousel-3d-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  margin-top: 100px;
+}
+
+.carousel-3d {
+  position: relative;
+  perspective: 1200px;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-3d-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
+
+/* tarjetas */
+.carousel-3d-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 280px;
+  transform: translate(-50%, -50%);
+  transition: transform 1s ease;
+}
+
+/* diseño de cada tarjeta */
+.member-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.member-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.member-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  margin-bottom: 0.8rem;
+}
+
+.ubicacion {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+/* flechas */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.4em 0.6em;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.carousel-arrow.left {
+  left: 20px;
+}
+
+.carousel-arrow.right {
+  right: 20px;
+}
+
+/* barra */
+.drag-bar {
+  margin-top: 30px;
+  width: 60%;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.drag-bar:active {
+  cursor: grabbing;
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .carousel-3d-wrapper {
+    height: 450px;
+    margin-top: 60px;
+  }
+  .carousel-3d {
+    height: 350px;
+  }
+  .carousel-3d-item {
+    width: 180px;
+    height: 240px;
+  }
+  .member-img {
+    width: 100px;
+    height: 100px;
+  }
+  .drag-bar {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+}

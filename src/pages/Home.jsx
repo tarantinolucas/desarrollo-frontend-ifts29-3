@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/styles.css";
+import "../css/carrousel.css";
 import { usePageMetadata } from "../hooks/usePageMetadata";
 import heroVideo from "../assets/hero-bg.mp4";
 import lucasImg from "../assets/lucas_perfil.png";
@@ -10,47 +11,13 @@ import joseImg from "../assets/jose.png";
 import estivenImg from "../assets/est-avatar.png";
 import favicon from "../assets/favicon.png";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
+import Carousel3DHome from "../components/Carousel3DHome";
 
 export default function Home() {
   usePageMetadata("Equipo Innovador - Inicio", favicon);
   const [clima, setClima] = useState(null);
 
-  // Implementación del Toast de bienvenida
-  const [showToast, setShowToast] = useState(false);
-  const [toastData, setToastData] = useState({ saludo: "", hora: "" });
-
-  const handleBienvenidaClick = () => {
-    if (showToast) return;
-
-    const ahora = new Date();
-    const hora = ahora.getHours();
-    let saludo;
-
-    if (hora < 12) {
-      saludo = "¡Buenos días!";
-    } else if (hora < 18) {
-      saludo = "¡Buenas tardes!";
-    } else {
-      saludo = "¡Buenas noches!";
-    }
-
-    const horaFormateada = ahora.toLocaleTimeString("es-ES", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-
-    setToastData({ saludo, hora: horaFormateada });
-    setShowToast(true);
-
-    // Programa que el toast se oculte solo después de 5 segundos
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000);
-  };
-
-  // Llamada a API de clima
   useEffect(() => {
-    // definimos la función y la ejecutamos
     async function fetchClima() {
       try {
         const res = await fetch(
@@ -69,9 +36,31 @@ export default function Home() {
         setClima("Error al conectar con la API del clima.");
       }
     }
-
     fetchClima();
   }, []);
+
+  const [showToast, setShowToast] = useState(false);
+  const [toastData, setToastData] = useState({ saludo: "", hora: "" });
+
+  const handleBienvenidaClick = () => {
+    if (showToast) return;
+    const ahora = new Date();
+    const hora = ahora.getHours();
+    let saludo;
+
+    if (hora < 12) saludo = "¡Buenos días!";
+    else if (hora < 18) saludo = "¡Buenas tardes!";
+    else saludo = "¡Buenas noches!";
+
+    const horaFormateada = ahora.toLocaleTimeString("es-ES", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    setToastData({ saludo, hora: horaFormateada });
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 3000);
+  };
 
   const integrantes = [
     {
@@ -79,7 +68,7 @@ export default function Home() {
       img: lucasImg,
       ubicacion: "Villa Devoto, CABA",
       descripcion:
-        "Me encanta la tecnología, el desarrollo de software, los juegos, pasar tiempo en familia y el fútbol.",
+        "Amante de la tecnología, desarrollo de software, videojuegos y fútbol.",
       skills: ["HTML", "CSS", "JavaScript", "C#"],
     },
     {
@@ -87,7 +76,7 @@ export default function Home() {
       img: victoriaImg,
       ubicacion: "Buenos Aires, Argentina",
       descripcion:
-        "Diseñadora multimedia especializada en UX/UI. Me apasiona transformar ideas en productos digitales.",
+        "Diseñadora multimedia especializada en UX/UI. Me apasiona transformar ideas en experiencias.",
       skills: ["Figma", "Adobe Suite", "HTML", "JavaScript"],
     },
     {
@@ -101,7 +90,7 @@ export default function Home() {
     {
       nombre: "Jose",
       img: joseImg,
-      ubicacion: "???",
+      ubicacion: "Argentina",
       descripcion:
         "Estudiante de desarrollo de software, web y de creación de videojuegos.",
       skills: ["HTML", "Python", "Flask", "Godot", "Maya", "Blender"],
@@ -116,12 +105,15 @@ export default function Home() {
     },
   ];
 
-  // Reutilizar animación para las tarjetas del equipo
-  useRevealOnScroll('#equipo .card', { threshold: 0.2, rootMargin: '0px 0px -10% 0px', stagger: 100 });
+  useRevealOnScroll(".carousel-3d", {
+    threshold: 0.2,
+    rootMargin: "0px 0px -10% 0px",
+    stagger: 100,
+  });
 
   return (
     <div className="home trama">
-      {/* Hero Section */}
+      {/* hero */}
       <section
         className="hero"
         style={{
@@ -134,7 +126,7 @@ export default function Home() {
           Tu navegador no soporta video en HTML5.
         </video>
 
-        {/* Toast de bienvenida */}
+        {/* toast de bienvenida */}
         <div
           className="toast-container position-fixed top-0 end-0 p-3"
           style={{ zIndex: 9999 }}
@@ -153,7 +145,6 @@ export default function Home() {
                 type="button"
                 className="btn-close btn-close-white"
                 onClick={() => setShowToast(false)}
-                aria-label="Close"
               ></button>
             </div>
             <div className="toast-body text-dark">
@@ -163,15 +154,15 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Contenido del Hero */}
+        {/* contenido principal */}
         <div className="container hero-content">
           <div className="row align-items-center min-vh-100 pt-5">
-            <div className="col-lg-6" style={{ marginLeft: '40px' }}>
+            <div className="col-lg-6" style={{ marginLeft: "40px" }}>
               <h1 className="display-4 fw-bold mb-4">Equipo Innovador</h1>
               <p className="lead mb-4">
                 Somos un grupo de estudiantes apasionados por la tecnología y el
-                desarrollo web. Nuestro objetivo es crear soluciones innovadoras
-                y aprender juntos en este emocionante viaje.
+                desarrollo web. Creamos soluciones innovadoras y aprendemos
+                juntos en este emocionante viaje.
               </p>
               <div className="d-flex flex-wrap gap-3">
                 <button
@@ -189,51 +180,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección del Equipo */}
-      <section id="equipo" className="py-5">
-  <div className="container text-center">
-    <h2 className="display-5 fw-bold text-primary mb-3">
-      Nuestro Equipo
-    </h2>
-    <p className="lead text-muted mb-5">
-      Conoce a los integrantes de nuestro equipo y descubre sus
-      habilidades e intereses.
-    </p>
-    <div className="row g-4">
-      {integrantes.map((integrante, i) => (
-        <div key={i} className="col-lg-4 col-md-6">
-          <Link 
-            to={`/integrantes/${integrante.nombre.toLowerCase()}`} 
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <div className="card h-100 reveal">
-              <img
-                src={integrante.img}
-                className="card-img-top"
-                alt={integrante.nombre}
-              />
-              <div className="card-body text-center">
-                <h5 className="card-title">{integrante.nombre}</h5>
-                <p className="text-muted mb-3">
-                  <i className="bi bi-geo-alt-fill me-1"></i>
-                  {integrante.ubicacion}
-                </p>
-                <p className="card-text">{integrante.descripcion}</p>
-                <div className="skills-list mb-3">
-                  {integrante.skills.map((s, j) => (
-                    <span key={j} className="skill-tag">
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Link>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+      {/* Ccarrusel 3D */}
+      <section id="equipo" className="carousel-3d-section py-5">
+        <h2 className="text-center mb-4">Nuestro Equipo</h2>
+        <Carousel3DHome integrantes={integrantes} />
+        {clima && (
+          <p className="text-center mt-3 text-muted">
+            🌤️ {clima}
+          </p>
+        )}
+      </section>
     </div>
   );
 }
