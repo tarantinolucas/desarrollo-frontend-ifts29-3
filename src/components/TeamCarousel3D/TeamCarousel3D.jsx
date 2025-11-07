@@ -299,7 +299,7 @@ const TeamCarousel3D = ({
                       margin: '0.3rem 0 0 0',
                       fontStyle: 'italic'
                     }}>
-                      Hace hover para revelar
+                      Pasa el mouse por encima para revelar
                     </p>
                   </div>
                   
