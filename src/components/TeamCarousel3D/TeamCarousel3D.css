@@ -1,0 +1,304 @@
+/* TeamCarousel3D.css - CORREGIDO */
+
+/* Contenedor principal */
+.team-carousel-3d-container {
+  position: relative;
+  width: 80%;
+  height: auto;
+  perspective: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+}
+
+.team-carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.team-carousel-3d {
+  position: relative;
+  width: 240px;
+  height: 380px;
+  transform-style: preserve-3d;
+  transition: transform 2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.team-carousel-3d-item {
+  position: absolute;
+  width: 240px;
+  height: auto;
+  left: 0;
+  top: 0;
+  transform-origin: center center;
+  transition: all 2s cubic-bezier(0.4, 0.0, 0.2, 1);
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+.team-carousel-3d-item.active {
+  opacity: 1;
+  filter: blur(0);
+  z-index: 10;
+}
+
+/* Posicionamiento 3D */
+.team-carousel-3d-item:nth-child(1) {
+  transform: rotateY(0deg) translateZ(320px) scale(0.9);
+}
+
+.team-carousel-3d-item:nth-child(2) {
+  transform: rotateY(72deg) translateZ(380px);
+}
+
+.team-carousel-3d-item:nth-child(3) {
+  transform: rotateY(144deg) translateZ(380px);
+}
+
+.team-carousel-3d-item:nth-child(4) {
+  transform: rotateY(216deg) translateZ(380px);
+}
+
+.team-carousel-3d-item:nth-child(5) {
+  transform: rotateY(288deg) translateZ(380px);
+}
+
+
+/* Optimizar espaciado interno */
+.team-carousel-3d-item .card-body {
+  padding: 0.8rem !important; /* Reducido de 1rem */
+}
+
+
+
+/* CORRECCIÓN: Efecto hover SEGURO para imagen */
+.team-carousel-3d-item .hover-scale-image {
+  transition: transform 0.3s ease !important;
+  transform-origin: center center !important;
+}
+
+
+.team-carousel-3d-item .team-card:hover .hover-scale-image {
+  transform: scale(1.03) !important; /* Escala conservadora */
+}
+
+/* CORRECCIÓN: Efecto hover SEGURO para tarjeta completa */
+.team-carousel-3d-item .team-card:hover {
+  transform: translateY(-5px) !important; /* Solo movimiento vertical */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Asegurar que el contenido esté por encima */
+.team-carousel-3d-item .compact-content {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Skills compactos - mantener los estilos del apipage.css */
+.team-carousel-3d-item .compact-skills .skill-item {
+  margin-bottom: 8px !important;
+}
+
+.team-carousel-3d-item .compact-skills .skill-name {
+  font-size: 0.7rem !important;
+}
+
+.team-carousel-3d-item .compact-skills .skill-percentage {
+  font-size: 0.65rem !important;
+}
+
+.team-carousel-3d-item .compact-skills .skill-bar {
+  height: 6px !important;
+}
+
+/* Social links compactos */
+.team-carousel-3d-item .compact-social .social-btn {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* .team-carousel-3d-item .compact-social .social-btn i {
+  font-size: 0.8rem !important;
+} */
+
+/* Controles */
+.team-carousel-3d-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.team-carousel-3d-btn {
+  background: rgba(43, 42, 70, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  pointer-events: all;
+}
+
+.team-carousel-3d-btn:hover {
+  background: rgba(102, 126, 234, 0.9);
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Indicadores */
+.team-carousel-3d-indicators {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.team-carousel-3d-indicators .team-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(43, 42, 70, 0.8);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.team-carousel-3d-indicators .team-indicator.active {
+  background: rgba(43, 42, 70, 0.8);
+  transform: scale(1.2);
+}
+
+.team-carousel-3d-indicators .team-indicator:hover {
+  background: rgba(43, 42, 70, 0.8);
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE MEJORADO */
+@media (max-width: 1024px) {
+  .team-carousel-3d-container {
+    width: 95%;
+    height: auto;
+    perspective: 800px;
+  }
+  
+  .team-carousel-3d {
+    width: 260px;
+    height: 380px;
+  }
+  
+  .team-carousel-3d-item {
+    width: 260px;
+    height: 380px;
+  }
+  
+  /* Ajustar para tablet */
+  .team-carousel-3d-item:nth-child(1),
+  .team-carousel-3d-item:nth-child(2),
+  .team-carousel-3d-item:nth-child(3),
+  .team-carousel-3d-item:nth-child(4),
+  .team-carousel-3d-item:nth-child(5) {
+    transform: rotateY(calc(var(--rotation, 0) * 72deg)) translateZ(280px) scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .team-carousel-3d-container {
+    width: 100%;
+    height: auto;
+    perspective: 1200px;
+    margin: 20px auto;
+  }
+  
+  .team-carousel-3d {
+    width: 240px;
+    height: auto;
+  }
+  
+  .team-carousel-3d-item {
+    width: 240px;
+    height: auto;
+    opacity: 0; /* Ocultar todas en móvil */
+    filter: blur(0);
+  }
+  
+  /* EN MÓVIL: Solo mostrar la tarjeta activa */
+  .team-carousel-3d-item.active {
+    opacity: 1;
+    transform: none !important; /* Reset transforms en móvil */
+    position: relative;
+  }
+  
+  .team-carousel-3d-item:not(.active) {
+    display: none; /* Ocultar completamente las no activas */
+  }
+  
+  /* Ajustar imagen para móvil */
+  .team-carousel-3d-item .compact-img {
+    height: 100px !important;
+  }
+  
+  /* Ajustar controles para móvil */
+  .team-carousel-3d-controls {
+    padding: 0 15px;
+  }
+  
+  .team-carousel-3d-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+    
+  .team-carousel-3d-container {
+    perspective: 1200px;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
+  }
+  
+  .team-carousel-3d {
+    width: 220px;
+    height: auto;
+  }
+  
+  .team-carousel-3d-item {
+    width: 220px;
+    height: auto;
+  }
+  
+  .team-carousel-3d-item .compact-img {
+    height: 90px !important;
+  }
+  
+  /* Indicadores más pequeños en móvil */
+  .team-carousel-3d-indicators {
+    bottom: -50px;
+  }
+  
+  .team-carousel-3d-indicators .team-indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
