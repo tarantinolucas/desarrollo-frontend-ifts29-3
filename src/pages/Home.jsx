@@ -77,9 +77,9 @@ export default function Home() {
         { name: "JavaScript", level: 75 },
         { name: "C#", level: 70 }
       ],
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com",
+      github: "https://www.github.com",
+      instagram: "https://www.instagram.com"
     },
     {
       nombre: "Victoria",
@@ -92,9 +92,9 @@ export default function Home() {
         { name: "HTML", level: 75 },
         { name: "JavaScript", level: 65 }
       ],
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com",
+      github: "https://www.github.com",
+      instagram: "https://www.instagram.com"
     },
     {
       nombre: "Sebastián",
@@ -108,9 +108,9 @@ export default function Home() {
       { name: "PHP", level: 70 },
       { name: "Firewall", level: 82 }
       ],
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com",
+      github: "https://www.github.com",
+      instagram: "https://www.instagram.com"
     },
     {
       nombre: "Jose",
@@ -126,9 +126,9 @@ export default function Home() {
       { name: "Maya", level: 60 },
       { name: "Blender", level: 70 }
       ],
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com",
+      github: "https://www.github.com",
+      instagram: "https://www.instagram.com"
     },
     {
       nombre: "Estiven",
@@ -142,9 +142,9 @@ export default function Home() {
       { name: "Express", level: 78 },
       { name: "NestJS", level: 72 }
       ],
-      linkedin: "#",
-      github: "#",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com",
+      github: "https://www.github.com",
+      instagram: "https://www.instagram.com"
     },
   ];
 
