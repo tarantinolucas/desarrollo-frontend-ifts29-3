@@ -11,22 +11,20 @@
 
 -----
 
+## Equipo Innovador - Grupo 9
+
+  * Sebastián Gutierrez
+  * Estiven Fernandez
+  * Lucas Tarantino
+  * Jose Luis Colombo
+  * Victoria Sobral
+
+-----
 ## Mejoras de la Última Entrega
 
 A continuación, se detallan las mejoras implementadas en esta entrega según las propuestas de la asignatura.
 
-### 1. Navegación con Animaciones Suaves
-Se agregaron transiciones suaves al cambiar de página para mejorar la experiencia de usuario y la fluidez de la navegación en todo el sitio.
-
-**Antes de las mejoras:**
-
-![Muestra de animación sin suavizar](./src/assets/Animaciones_Suaves_Antes.gif)
-
-**Después de las mejoras:**
-
-![Muestra de animaciones suavizadas](./src/assets/Animaciones_Suaves_Despues.gif)
-
-### 2. Carga Progresiva en Galería de Proyectos
+### 1. Carga Progresiva en Galería de Proyectos
 En la página de proyectos (`GaleriaJsonPage`), se implementó la carga progresiva de las tarjetas. Ahora, los proyectos aparecen a medida que el usuario se desplaza hacia abajo, mejorando el rendimiento inicial de la página.
 
 **Antes de las mejoras:**
@@ -36,6 +34,17 @@ En la página de proyectos (`GaleriaJsonPage`), se implementó la carga progresi
 **Después de las mejoras:**
 
 ![Carga Progresiva optimizada](./src/assets/Carga_Progresiva_Despues.gif)
+
+### 2. Navegación con Animaciones Suaves
+Se agregaron transiciones suaves al cambiar de página para mejorar la experiencia de usuario y la fluidez de la navegación en todo el sitio.
+
+**Antes de las mejoras:**
+
+![Muestra de animación sin suavizar](./src/assets/Animaciones_Suaves_Antes.gif)
+
+**Después de las mejoras:**
+
+![Muestra de animaciones suavizadas](./src/assets/Animaciones_Suaves_Despues.gif)
 
 ### 3. Filtros de Búsqueda en Galería de Proyectos
 Se incorporaron filtros de búsqueda en la página de proyectos, permitiendo a los usuarios encontrar proyectos específicos más fácilmente según distintos criterios.
@@ -80,16 +89,6 @@ Se realizaron mejoras visuales en diversas páginas, como por ejemplo en la de `
 **Después de las mejoras:**
 
 ![Estilos Visuales armonizados](./src/assets/Mejoras_Visuales_Despues.jpg)
-
------
-
-## Equipo Innovador - Grupo 9
-
-  * Sebastián Gutierrez
-  * Estiven Fernandez
-  * Lucas Tarantino
-  * Jose Luis Colombo
-  * Victoria Sobral
 
 -----
 
