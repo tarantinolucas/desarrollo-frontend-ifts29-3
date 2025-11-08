@@ -31,7 +31,7 @@ En la página de proyectos (`GaleriaJsonPage`), se implementó la carga progresi
 
 **Antes de las mejoras:**
 
-![Carga Progresiva sin optimizar](./src/assets/Carga_Progresiva_Antes.gif)
+![Carga Progresiva sin optimizar](./src/assets/Carga_progresiva_Antes.gif)
 
 **Después de las mejoras:**
 
@@ -53,7 +53,7 @@ La página del clima (`ApiPage`) ahora detecta y muestra automáticamente el cli
 
 **Antes de las mejoras:**
 
-![Página del Clima sin geolocalización](./src/assets/Filtros_Busqueda_climas_Antes.png)
+![Página del Clima sin geolocalización](./src/assets/Filtros_Busqueda_Climas_Antes.png)
 
 **Después de las mejoras:**
 
